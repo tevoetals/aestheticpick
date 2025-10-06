@@ -1,0 +1,20 @@
+Dependências — Aesthetic Replace (Wayland/X11)
+Gerado em: 2025-10-04T08:18:34-03:00
+
+Obrigatórias (picker):
+  - rofi
+
+Wayland (execução principal Caminho B):
+  - wl-clipboard (wl-paste, wl-copy)
+  - wtype
+
+X11 (fallback opcional):
+  - xclip
+  - xdotool
+
+Notas Wayland:
+  - Requer módulo uinput carregado e persistente.
+  - Regra udev para /dev/uinput: GROUP="input", MODE="0660".
+  - Usuário no grupo input (logout/login obrigatório).
+  - Serviço de usuário: systemctl --user enable --now ydotool.service
+  - Socket esperado: /run/user/<UID>/.ydotool_socket
